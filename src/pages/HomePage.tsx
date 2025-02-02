@@ -7,7 +7,7 @@ import { ModalView } from "../components/ModalViews";
 import "./HomePage.css";
 
 const Home = () => {
-  const [query, setQuery] = useState<string>("popular");
+  const [query, setQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [selectedPhoto, setSelectedPhoto] = useState<any | null>(null);
   const [photos, setPhotos] = useState<any[]>([]);
