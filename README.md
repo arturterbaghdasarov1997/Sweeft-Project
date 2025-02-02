@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Photo Gallery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+The **Photo Gallery App** is a React-based web application that allows users to browse popular images from Unsplash, search for specific images, and view search history. It features infinite scrolling, a caching mechanism to reduce redundant API requests, and a detailed modal view for each image.
 
-Currently, two official plugins are available:
+## Features
+- **Main Page**
+  - Displays the **20 most popular images** by default.
+  - Includes a **search box** that updates images dynamically based on user input.
+  - Uses a **caching mechanism** to prevent redundant API requests when revisiting previous searches.
+  - Supports **infinite scrolling** for seamless image browsing.
+  
+- **History Page**
+  - Displays all previous search terms used by the user.
+  - Clicking on a search term reloads the corresponding images from the cache.
+  - Allows users to **delete specific search terms** or **clear the entire history**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Image Modal**
+  - Displays the **full version** of an image when clicked.
+  - Shows additional details, including:
+    - **Number of downloads**
+    - **Views**
+    - **Likes**
+  - Provides an option to **download the image** in its original format.
 
-## Expanding the ESLint configuration
+## Technologies Used
+- **React** (Frontend Framework)
+- **TypeScript** (Static Typing)
+- **Unsplash API** (Image Data)
+- **Axios** (API Requests)
+- **React Router** (Navigation)
+- **LocalStorage & SessionStorage** (Caching and History Management)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Usage
+1. **Browse Popular Images**: Open the main page to see the top 20 trending images.
+2. **Search for Images**: Type in the search box to update the image results dynamically.
+3. **View Search History**: Visit the history page to see past searches and click to reload them.
+4. **Infinite Scroll**: Scroll down to load more images dynamically.
+5. **Open Image Modal**: Click on an image to view details and download it.
