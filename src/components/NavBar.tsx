@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./NavBar.css";
 
 export interface NavbarProps {
     query?: string;

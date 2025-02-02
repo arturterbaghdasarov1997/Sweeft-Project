@@ -1,0 +1,31 @@
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.download-btn:hover {
+    background-color: #337737;
+}
+
+.close-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.close-btn:hover {
+    background-color: transparent;
+    color: red;
+}
