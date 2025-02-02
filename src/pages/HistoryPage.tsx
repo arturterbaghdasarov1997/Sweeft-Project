@@ -13,26 +13,23 @@ const HistoryPage: React.FC = () => {
     setHistory(storedHistory);
   }, []);
 
-  // Clears entire history and removes cached results
   const handleClearHistory = () => {
     localStorage.removeItem("searchHistory");
     sessionStorage.clear();
     setHistory([]);
   };
 
-  // Deletes a specific search entry
   const handleDelete = (index: number) => {
     const updatedHistory = history.filter((_, i) => i !== index);
     localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
     setHistory(updatedHistory);
   };
 
-  // Handles history item click & loads cached results if available
   const handleHistoryClick = (query: string) => {
     const cachedResults = sessionStorage.getItem(`cachedResults-${query}-page-1`);
 
     if (cachedResults) {
-      sessionStorage.setItem("currentResults", cachedResults); // Store cached results
+      sessionStorage.setItem("currentResults", cachedResults);
     }
 
     navigate(`/?query=${query}`);
