@@ -14,37 +14,31 @@ export const ModalView: React.FC<IPhotoModal> = ({ open, onClose, photo }) => {
     return null;
   }
 
-  const download = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const download = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-
-    const imageUrl = e.currentTarget.href;
-
-    fetch(imageUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch image");
-        }
-        return response.arrayBuffer();
-      })
-      .then((buffer) => {
-        const blob = new Blob([buffer]);
-        const url = window.URL.createObjectURL(blob);
-
-        const fileName = photo.alt_description?.replace(/[^a-z0-9]/gi, '_') || "image.png";
-
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", fileName);
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-
-        setDownloads((prev) => prev + 1);
-      })
-      .catch((err) => {
-        console.error("Download error:", err);
-      });
-  };
+  
+    try {
+      const response = await fetch(imageUrl);
+      if (!response.ok) throw new Error("Failed to fetch image");
+  
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+  
+      const fileExtension = blob.type.includes("png") ? "png" : "jpg";
+      const fileName = `${photo.alt_description?.replace(/[^a-z0-9]/gi, '_') || "image"}.${fileExtension}`;
+  
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+  
+      setDownloads((prev) => prev + 1);
+    } catch (error) {
+      console.error("Download error:", error);
+    }
+  };  
 
   if (!open) return null;
 
