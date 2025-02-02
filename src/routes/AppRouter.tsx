@@ -4,12 +4,12 @@ import HomePage from "../pages/HomePage";
 import HistoryPage from "../pages/HistoryPage";
 
 const AppRouter: React.FC = () => {
-    return (
-        <Routes>
-            <Route path="/" element={<HomePage/>} />
-            <Route path="/history" element={<HistoryPage/>} />
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/history" element={<HistoryPage />} />
+    </Routes>
+  );
 };
 
 export default AppRouter;

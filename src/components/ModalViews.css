@@ -7,13 +7,13 @@
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
-}
-
-.download-btn:hover {
+  }
+  
+  .download-btn:hover {
     background-color: #337737;
-}
-
-.close-btn {
+  }
+  
+  .close-btn {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -23,9 +23,10 @@
     border: none;
     cursor: pointer;
     z-index: 9999;
-}
+  }
 
-.close-btn:hover {
+  .close-btn:hover {
     background-color: transparent;
     color: red;
-}
+  }
+  
