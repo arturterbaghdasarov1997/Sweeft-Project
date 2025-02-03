@@ -41,7 +41,7 @@ The **Photo Gallery App** is a React-based web application that allows users to 
 ## Installation & Setup
 1. **Clone the repository:**
 git clone https://github.com/arturterbaghdasarov1997/Sweeft-Project.git
-cd photo-gallery-app
+cd Sweeft-Project
 
 2. **Install dependencies:**
 npm install
