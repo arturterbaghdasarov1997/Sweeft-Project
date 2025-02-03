@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { fetchPopularPhotos } from "../api/photoService";
+
 export const useSearch = (query: string, page: number) => {
   const [debouncedQuery, setDebouncedQuery] = useState(query);
   useEffect(() => {
