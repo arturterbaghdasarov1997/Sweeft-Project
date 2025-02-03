@@ -27,12 +27,13 @@ const HistoryPage: React.FC = () => {
 
   const handleHistoryClick = (query: string) => {
     const cachedResults = sessionStorage.getItem(`cachedResults-${query}-page-1`);
-
+  
     if (cachedResults) {
       sessionStorage.setItem("currentResults", cachedResults);
+      navigate(`/?query=${query}`, { replace: true });
+    } else {
+      navigate(`/?query=${query}`);
     }
-
-    navigate(`/?query=${query}`);
   };
 
   return (
