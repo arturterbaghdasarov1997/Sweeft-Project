@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { NavBar } from "../components/NavBar";
-import { MdDeleteForever, MdDeleteSweep } from "react-icons/md";
+import { MdDeleteForever } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { useHistoryManager } from "../hooks/useHistoryManager";
+import { HistoryList } from "../components/HistoryList";
 import "./HistoryPage.css";
 
 const HistoryPage: React.FC = () => {
-  const [history, setHistory] = useState<string[]>([]);
+  const { history, clearHistory, deleteHistoryItem } = useHistoryManager();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const storedHistory = JSON.parse(localStorage.getItem("searchHistory") || "[]");
-    setHistory(storedHistory);
-  }, []);
-
-  const handleClearHistory = () => {
-    localStorage.removeItem("searchHistory");
-    sessionStorage.clear();
-    setHistory([]);
-  };
-
-  const handleDelete = (index: number) => {
-    const updatedHistory = history.filter((_, i) => i !== index);
-    localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
-    setHistory(updatedHistory);
-  };
 
   const handleHistoryClick = (query: string) => {
     const cachedResults = sessionStorage.getItem(`cachedResults-${query}-page-1`);
@@ -42,17 +27,8 @@ const HistoryPage: React.FC = () => {
       <h1>Search History</h1>
       {history.length > 0 ? (
         <>
-          <ul>
-            {history.map((query, index) => (
-              <li key={index} className="history-item">
-                <button onClick={() => handleHistoryClick(query)}>{query}</button>
-                <button onClick={() => handleDelete(index)} className="delete-btn">
-                  <MdDeleteSweep />
-                </button>
-              </li>
-            ))}
-          </ul>
-          <button onClick={handleClearHistory} className="clear-history-btn">
+          <HistoryList history={history} onDelete={deleteHistoryItem} onHistoryClick={handleHistoryClick} />
+          <button onClick={clearHistory} className="clear-history-btn">
             <MdDeleteForever /> Clear History
           </button>
         </>
