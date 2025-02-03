@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
-import { IoHomeSharp, IoSearch } from "react-icons/io5";
+import { IoHomeSharp } from "react-icons/io5";
+import { MdOutlineManageSearch } from "react-icons/md";
+import { LuTextSearch } from "react-icons/lu";
 
 interface NavBarProps {
   query?: string;
@@ -30,7 +32,7 @@ export const NavBar: React.FC<NavBarProps> = ({setQuery}) => {
             to="/history"
             className={location.pathname === "/history" ? "active" : ""}
         >
-          <IoSearch /> Search History
+          <LuTextSearch /> Search History
         </Link>
       </div>
     </div>
