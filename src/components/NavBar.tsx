@@ -1,7 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import { IoHomeSharp } from "react-icons/io5";
-import { MdOutlineManageSearch } from "react-icons/md";
 import { LuTextSearch } from "react-icons/lu";
 
 interface NavBarProps {
