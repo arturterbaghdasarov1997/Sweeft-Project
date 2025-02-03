@@ -8,7 +8,7 @@ import { ModalView } from "../components/ModalViews";
 import "./HomePage.css";
 
 const HomePage: React.FC = () => {
-    const [query, setQuery] = useState<string>("");
+    const [query, setQuery] = useState<string>(""); 
     const [page, setPage] = useState<number>(1);
     const [selectedPhoto, setSelectedPhoto] = useState<any | null>(null);
     const [photos, setPhotos] = useState<any[]>([]);
@@ -32,7 +32,6 @@ const HomePage: React.FC = () => {
 
     const handleQueryChange = (newQuery: string) => {
         setQuery(newQuery);
-
         navigate(`/?query=${newQuery}`, { replace: true });
 
         if (debounceTimeout.current) {
@@ -45,7 +44,7 @@ const HomePage: React.FC = () => {
             const updatedHistory = previousHistory.includes(newQuery)
                 ? previousHistory
                 : [...previousHistory, newQuery];
-                localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
+            localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
         }, 500);
     };
 
@@ -84,49 +83,49 @@ const HomePage: React.FC = () => {
 
     if (isError) return <div>Error loading photos!</div>;
 
-  return (
-    <div className="home-container">
-        <NavBar query={query} setQuery={handleQueryChange} />
-        <div className="search">
-            <input
-                type="text"
-                placeholder="Search for photos..."
-                value={query}
-                onChange={(e) => handleQueryChange(e.target.value)}
-            />
-        </div>
-
-        {!photos.length && (
-            <div className="no-results">
-                No results found for "{query}". Try searching for something else.
+    return (
+        <div className="home-container">
+            <NavBar query={query} setQuery={handleQueryChange} />
+            <div className="search">
+                <input
+                    type="text"
+                    placeholder="Search for photos..."
+                    value={query}
+                    onChange={(e) => handleQueryChange(e.target.value)}
+                />
             </div>
-        )}
 
-        <div className="photo-grid">
-            {photos.map((photo: any, index: number) => (
-                <div
-                    key={photo.id}
-                    ref={index === photos.length - 1 ? lastPhotoRef : null}
-                >
-                    <PhotoCard
-                        photo={photo}
-                        onClick={() => setSelectedPhoto(photo)}
-                    />
+            {!photos.length && (
+                <div className="no-results">
+                    No results found for "{query}". Try searching for something else.
                 </div>
-            ))}
+            )}
+
+            <div className="photo-grid">
+                {photos.map((photo: any, index: number) => (
+                    <div
+                        key={`${photo.id}-${index}`}
+                        ref={index === photos.length - 1 ? lastPhotoRef : null}
+                    >
+                        <PhotoCard
+                            photo={photo}
+                            onClick={() => setSelectedPhoto(photo)}
+                        />
+                    </div>
+                ))}
+            </div>
+
+            {isLoading && <div><AiOutlineLoading3Quarters />Loading</div>}
+
+            {selectedPhoto && (
+                <ModalView
+                    open={!!selectedPhoto}
+                    onClose={() => setSelectedPhoto(null)}
+                    photo={selectedPhoto}
+                />
+            )}
         </div>
-
-        {isLoading && <div><AiOutlineLoading3Quarters />Loading</div>}
-
-        {selectedPhoto && (
-            <ModalView
-                open={!!selectedPhoto}
-                onClose={() => setSelectedPhoto(null)}
-                photo={selectedPhoto}
-            />
-        )}
-    </div>
-  );
+    );
 };
 
 export default HomePage;
