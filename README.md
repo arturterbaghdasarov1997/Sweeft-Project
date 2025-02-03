@@ -1,4 +1,4 @@
-# Photo Gallery App
+# Sweeft-Project: Photo Gallery App
 
 ## Overview
 The **Photo Gallery App** is a React-based web application that allows users to browse popular images from Unsplash, search for specific images, and view search history. It features infinite scrolling, a caching mechanism to reduce redundant API requests, and a detailed modal view for each image.
@@ -40,7 +40,7 @@ The **Photo Gallery App** is a React-based web application that allows users to 
 
 ## Installation & Setup
 1. **Clone the repository:**
-git clone https://github.com/yourusername/photo-gallery-app.git
+git clone https://github.com/yourusername/Sweeft-Project.git
 cd photo-gallery-app
 
 2. **Install dependencies:**
