@@ -37,3 +37,17 @@ The **Photo Gallery App** is a React-based web application that allows users to 
 3. **View Search History**: Visit the history page to see past searches and click to reload them.
 4. **Infinite Scroll**: Scroll down to load more images dynamically.
 5. **Open Image Modal**: Click on an image to view details and download it.
+
+## Installation & Setup
+1. **Clone the repository:**
+git clone https://github.com/yourusername/photo-gallery-app.git
+cd photo-gallery-app
+
+2. **Install dependencies:**
+npm install
+
+3. **Run the application:**
+npm run dev
+
+4. **Access the app:**
+Open http://localhost:5173 in your browser.
