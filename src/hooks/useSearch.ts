@@ -6,19 +6,17 @@ export const useSearch = (query: string, page: number) => {
   const [debouncedQuery, setDebouncedQuery] = useState(query);
 
   useEffect(() => {
-    const timer = setTimeout(() => setDebouncedQuery(query), 800);
+    const timer = setTimeout(() => setDebouncedQuery(query), 500);
     return () => clearTimeout(timer);
   }, [query]);
 
-  console.log("Searching for:", debouncedQuery, "on page:", page);
-
   return useQuery(
-    ["photos", debouncedQuery, String(page)],
+    ["photos", debouncedQuery, page],
     () => fetchPopularPhotos(debouncedQuery, page),
     {
       staleTime: 1000 * 60 * 5,
       keepPreviousData: true,
-      onError: (error: Error) => console.log("Error ffetching photos:", error),
+      onError: (error: Error) => console.error("Error fetching photos:", error),
       enabled: debouncedQuery.trim() !== "",
       retry: 2,
     }
