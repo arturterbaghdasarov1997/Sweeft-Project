@@ -1,11 +1,6 @@
 import React from "react";
 import { MdDeleteSweep } from "react-icons/md";
-
-interface HistoryListProps {
-  history: string[];
-  onDelete: (index: number) => void;
-  onHistoryClick: (query: string) => void;
-}
+import { HistoryListProps } from "../interfaces/historyListProps.interface";
 
 export const HistoryList: React.FC<HistoryListProps> = ({ history, onDelete, onHistoryClick }) => {
   return (
