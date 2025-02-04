@@ -46,8 +46,12 @@ cd Sweeft-Project
 2. **Install dependencies:**
 npm install
 
-3. **Run the application:**
+3. **Set up environment variables:**
+Create a .env file in the project root and add your Unsplash API key:
+VITE_SWEEFT_API_KEY = 'unsplash_api_key_here'
+
+5. **Run the application:**
 npm run dev
 
-4. **Access the app:**
+6. **Access the app:**
 Open http://localhost:5173 in your browser.
