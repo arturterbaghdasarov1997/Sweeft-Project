@@ -40,18 +40,18 @@ The **Photo Gallery App** is a React-based web application that allows users to 
 
 ## Installation & Setup
 1. **Clone the repository:**
-git clone https://github.com/arturterbaghdasarov1997/Sweeft-Project.git
-cd Sweeft-Project
+- git clone https://github.com/arturterbaghdasarov1997/Sweeft-Project.git
+- cd Sweeft-Project
 
 2. **Install dependencies:**
-npm install
+- npm install
 
 3. **Set up environment variables:**
-Create an .env file in the project root and add your Unsplash API key:
-VITE_SWEEFT_API_KEY = 'unsplash_api_key_here'
+- Create an .env file in the project root and add your Unsplash API key:
+- VITE_SWEEFT_API_KEY = 'unsplash_api_key_here'
 
 5. **Run the application:**
-npm run dev
+- npm run dev
 
 6. **Access the app:**
-Open http://localhost:5173 in your browser.
+- Open http://localhost:5173 in your browser.
