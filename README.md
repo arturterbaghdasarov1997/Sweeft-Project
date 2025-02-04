@@ -47,7 +47,7 @@ cd Sweeft-Project
 npm install
 
 3. **Set up environment variables:**
-Create a .env file in the project root and add your Unsplash API key:
+Create an .env file in the project root and add your Unsplash API key:
 VITE_SWEEFT_API_KEY = 'unsplash_api_key_here'
 
 5. **Run the application:**
