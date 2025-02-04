@@ -2,11 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./NavBar.css";
 import { IoHomeSharp } from "react-icons/io5";
 import { LuTextSearch } from "react-icons/lu";
-
-interface NavBarProps {
-  query?: string;
-  setQuery?: (query: string) => void;
-}
+import { NavBarProps } from "../interfaces/navBarProps.interface";
 
 export const NavBar: React.FC<NavBarProps> = ({setQuery}) => {
     const location = useLocation();
